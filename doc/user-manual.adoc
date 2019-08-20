@@ -1,0 +1,268 @@
+= SAP Hybris OCC Connector
+
+MuleSoft Certified
+
+== About SAP Hybris
+
+SAP Hybris is a complete customer engagement and multichannel e-commerce solution with fully integrated tools and capacities.
+It serves B2B and B2C brands belonging from industries like financial services, telecommunication, insurance, media, manufacturing, retailing and wholesale.
+
+== About Omni Commerce Connect
+
+Omni Commerce Connect (OCC) enables you to expose key commerce capabilities via a RESTful Web service API.
+OCC offers a broad set of commerce and data services which enable you to use and leverage the complete Hybris Multichannel Suite functionality to quickly enable new touch points and new channels.
+
+The OCC exposes the following key commerce capabilities to the clients:
+
+. Catalog Data
+. Search and Navigation
+. Customer Management
+. Product Information
+. Cart and checkout functionality
+. Orders
+
+== About SAP Hybris OCC Connector
+
+SAP Hybris OCC Anypoint Connector provides Mule users a quick and easy way to integrate with SAP Hybris.
+
+This user guide details the compatibility, prerequisites, configuring the connector, operations supported by the connector and common use cases for the SAP Hybris connector.
+
+MuleSoft maintains the SAP Hybris OCC connector under the MuleSoft Certified Category support policy.
+
+== Prerequisites
+This document assumes that you are familiar with Mule, Anypoint Connectors,
+Anypoint Studio Essentials, Mule flows, and Mule Global Elements.
+
+To use Hybris connector, you need
+
+* Anypoint Studio version 7.
+* SAP Hybris.
+* Credentials to access to Hybris back-office.
+
+=== Mule Compatibility
+
+[width="100%", options="header"]
+|=======
+|Application/Service |Version
+|Mule Runtime |4 and later
+|Omni Commerce Connect |Version 2
+|SAP Hybris | 6.7.0 and above
+|Anypoint Studio | 7 and later
+|=======
+
+== What's New in this Connector
+
+* Hybris connector 4.0.0 is now compatible with Mule 4 and supports dynamic fields
+
+== To Install this Connector in Anypoint Studio 7
+You can use Hybris OCC connector in Anypoint Studio by adding it as a dependency in your Mule application.
+
+. Open your Mule project in Anypoint Studio.
+. Add the connector as a dependency in the pom.xml file:
+
+```
+<dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>hybris-occ-connector</artifactId>
+    <version>4.0.0-SNAPSHOT</version>
+    <classifier>mule-plugin</classifier>
+</dependency>
+```
+
+When Studio has an update, a message displays in the lower right corner, which
+you can click to install the update. After updating, update Maven pom.xml file dependencies to the new version.
+
+
+== Configure in Studio
+
+=== To Configure the Connector Using Trusted Client configuration
+* After adding connector dependency to Mule project, click on *Global Elements* tab at the base of the canvas.
+* In the Global Mule Configuration Elements screen, click *Create*.
+* In the Choose Global Type wizard, collapse connector configuration and select *'Hybris_OCC_Trustedclientconfig'* and click OK.
+
+image::/images/trustedclient/TrustedClientConfig.png[]
+* The configuration parameters to configure is
+
++
+[options="header",width="50%"]
+|============
+|Field Name   |Value
+|Server Address    |https:///hybrisdomain:port/rest/v2/store/
+|Access Token Url    |https://hybrisdomain:port/authorizationserver/oauth/token
+|ClientId    |Enter Client ID
+|Client Secret |Enter Client Secret
+|============
++
+
+* Credentials can be directly entered into the global configuration properties, or reference from a configuration file that contains these values.
+  Here we are adding credentials to application properties file and reference it using placeholders.
+
+image::/images/trustedclient/TrustedClientConfigDetails.png[]
+* Make a *Test Connection...* to check that the configuration is correct.
+
+image::/images/trustedclient/TrustedClientConfig_TestConnection.png[]
+
+* On success, configuration is ready to use!
+
+* Trusted client configuration should look like below in Configuration XML:
++
+```xml
+<hybris-occ:trusted-client-configuration-config name="Hybris_OCC_Trusted_client_configuration" doc:name="Hybris OCC Trusted client configuration" doc:id="2610a5c0-b5bd-4f3e-84d0-abc13e1ddbbc" >
+		<hybris-occ:trusted-client-connection addressUrl="${hybris.addressUrl}" tokenUrl="${hybris.tokenUrl}" clientId="${hybris.clientId}" clientSecret="${hybris.clientSecret}" swaggerLocation="ycommercewebservices.json" />
+</hybris-occ:trusted-client-configuration-config>
+```
+
+* *Note* For client id and client secret, navigate to *Hybris backoffice* and create your client. Once you have your Application, go to Application Details a save the values of *Client ID* and *Client Secret*.
+
+
+=== To Configure the Connector Using Customer/Customer Manager configuration
+
+* Go back to *Anypoint Studio*. In Mule Application, click on *Global Elements* and click *Create* button
+* Collapse connector configuration, select *'Hybris_OCC_Customermanagerconfig'* and click Ok. You should see as below screen
+
+image::/images/customermanager/CustomerManagerConfig.png[]
+* The configuration parameters to configure is
+
++
+[options="header",width="50%"]
+|============
+|Field Name   |Value
+|Server Address    |https://hybrisdomain:port/rest/v2/store/
+|Access Token Url    |https://hybrisdomain:port/authorizationserver/oauth/token
+|ClientId    |Enter Client ID
+|Client Secret |Enter Client Secret
+|username |Enter username
+|password |Enter password
+|============
++
+
+* Reference the *Server Address*, *Access Token Url*, *ClientId* , *Client Secret* with the *User name* and *Password* from application properties file.
+
+image::/images/customermanager/CustomerManagerConfigDetails.png[]
+* Make a *Test Connection...* to check that the configuration is correct.
+
+image::/images/customermanager/CustomerManagerConfig_TestConnection.png[]
+* On success, configuration is ready to use!
+* Customer, Customer Managers configuration should look like below in Configuration XML:
++
+```xml
+<hybris-occ:customer-manager-configuration-config name="Hybris_OCC_Customer_manager_configuration" doc:name="Hybris OCC Customer manager configuration" doc:id="6a064071-4e29-47dd-8f7d-6e1e70eae3c2" >
+		<hybris-occ:customer-manager-connection addressUrl="${hybris.addressUrl}" tokenUrl="${hybris.tokenUrl}" clientId="${hybris.clientId}" clientSecret="${hybris.clientSecret}" userName="${hybris.userName}" password="${hybris.password}" swaggerLocation="ycommercewebservices.json"/>
+</hybris-occ:customer-manager-configuration-config>
+```
+
+=== To Configure the Connector Using Hybris configuration
+* Hybris configuration is used for operations which works with both the configurations - Trusted Client & Customer Manager .
+* Go to *Anypoint Studio*. In Mule Application, click on *Global Elements* and click *Create* button
+* Collapse connector configuration and select *'Hybris_OCC_Hybrisconfig'*
+* Connection configuration can be provided with either Trusted Client details or Customer Manager details
+
+==== Hybris configuration with Trusted Client
+* Under *Connection* drop down, select *Trusted client connection*
+
+image::/images/hybrisconfig/HybrisTrustedClientConfig.png[]
+* Configuration required to configure Hybris Config Trusted Client Connection is the *Server Address* , *Access Token Url*, *ClientId*, *Client Secret*
+
+image::/images/hybrisconfig/HybrisTrustedClientConfigDetails.png[]
+* Make a *Test Connection...* to check that the configuration is correct.
+
+image::/images/hybrisconfig/HybrisTrustedClientConfig_TestConnection.png[]
+* On success, configuration is ready to use!
+* Hybris configuration with Trusted client should look like below in Configuration XML:
+
+```xml
+<hybris-occ:b-config name="Hybris_OCC_TC" doc:name="Hybris OCC B" doc:id="58320948-d51f-4a10-b89b-b207595cb478" >
+		<hybris-occ:trusted-client-connection addressUrl="${hybris.addressUrl}" tokenUrl="${hybris.tokenUrl}" clientId="${hybris.clientId}" clientSecret="${hybris.clientSecret}" swaggerLocation="ycommercewebservices.json" />
+</hybris-occ:b-config>
+```
+
+==== Hybris configuration with Customer/CustomerManager
+
+* Under *Connection* drop down, select *Customer manager connection* and rename it
+
+image::/images/hybrisconfig/HybrisCustomerManagerConfig.png[]
+* Configuration required to configure Hybris Config Customer Manager Connection is the *Server Address* , *Access Token Url*, *ClientId*, *Client Secret*, *User name* and *Password*
+
+image::/images/hybrisconfig/HybrisCustomerManagerConfigDetails.png[]
+* Make a *Test Connection...* to check that the configura dtion is correct.
+
+image::/images/hybrisconfig/HybrisCustomerManagerConfig_TestConnection.png[]
+* On success, configuration is ready to use!
+* Hybris configuration with Customer/Customer Manager configuration should look like below in Configuration XML:
++
+```xml
+<hybris-occ:b-config name="Hybris_OCC_CM" doc:name="Hybris OCC B" doc:id="d6b612d3-9deb-489a-99e0-11e17accdb79" >
+		<hybris-occ:customer-manager-connection addressUrl="${hybris.addressUrl}" tokenUrl="${hybris.tokenUrl}" clientId="${hybris.clientId}" clientSecret="${hybris.clientSecret}" userName="${hybris.userName}" password="${hybris.password}" swaggerLocation="ycommercewebservices.json"/>
+</hybris-occ:b-config>
+```
+
+== ​To Create a Mule Project in Anypoint Studio 7
+The SAP Hybris OCC connector is an operation-based connector, which means that when you add the connector to your flow, you need to configure a specific operation the connector is intended to perform. Below is the "Get carts" operation for better understanding
+
+* Create new Mule Application in Studio and configure *HTTP Listener* to port 8080.
+
+image::/images/demo-get-carts/http-listener.png[]
+* Add "/getcarts" path to test the flow.
+
+image::/images/demo-get-carts/listener-path.png[]
+* Select *'Get Carts'* operation from Hybris OCC connector, drag & drop it into canvas. Click on Get Carts operation.
+
+image::/images/demo-get-carts/get-carts.png[]
+* Select Hybris configuration from drop down which was already configured previously in global elements, or if required new configuration can be added by clicking green plus (+) symbol.
+
+image::/images/demo-get-carts/hybris-config.png[]
+* Make sure to test your connection, if you have add new connection details.
+* Enter user details for *Get carts* operation and save.
+
+image::/images/demo-get-carts/get-user-carts.png[]
+* Drag & drop *Transform Message* from Mule Palette, drag and drop it next to Hybris Connector. Use the below DataWeave snippet to transform the response.
+```
+%dw 2.0
+output application/json
+---
+payload
+
+```
+* Save the Mule project.
+* Complete flow looks as below.
+
+image::/images/demo-get-carts/demo-get-carts.png[]
+* Run the project as a Mule Application by right-clicking the project name in the Package Explorer, selecting Run As > Mule Application.
+* Open Postman and check the response after entering the URL *http://localhost:8080/getCarts*. You should see the cart details with same user.
+
+
+=== To Create a Mule Project Using XML
+* Create new Mule Application
+* Click on Configuration XML tab at the base of the canvas.
+* Copy below code and paste it.
+* Below code is for Get carts operation.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:hybris-occ="http://www.mulesoft.org/schema/mule/hybris-occ"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/hybris-occ http://www.mulesoft.org/schema/mule/hybris-occ/current/mule-hybris-occ.xsd">
+	
+	<flow name="get-carts" doc:id="7bbafc7f-cd2e-4f57-9a44-59e97643ec55" >
+		<http:listener doc:name="8081/getCarts" doc:id="ceae5c83-ef30-4d0b-b645-11505f6dbb05" config-ref="HTTP_Listener_config" allowedMethods="GET" path="/getCarts"/>
+		<hybris-occ:get-carts doc:name="get all customer carts" doc:id="2d2ccbf9-7343-4975-9067-fdb9ba2a1e66" config-ref="Hybris_OCC_CM" userId="#[attributes.queryParams.userId]"/>
+		<ee:transform doc:name="DW payload to JSON" doc:id="eff1999a-aa60-4d7e-8872-bc65d800188e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>	
+</mule>
+```
+
+== See Also
+* ​link:Hybris-Connector-release-notes[Hybris Connector Release Notes]
