@@ -43,20 +43,20 @@ SAP Hybris provides product for e-Commerce, Marketing, Sales and Service, Revenu
 3.HYBRIS API Service
 
 HYBRIS APIs provide access to various services for the following workflows:
-oProducts: This service provides details on total number of product stock levels, product details, reference, list of products and additional data.
-oPromotions: This service provides details on list of promotion and specific promotion based on code.
-oCustomer Groups: This service provides details on all sub groups of customer group, allow creation of new customer group, assign user to customer group, fetch specific group and delete user from customer group. To try out the methods of the Customer Groups controller, you must authorize a user who belongs to the “customer manager group”.
-oSave Cart: This service clones a cart, saves cart, restore a saved cart and retrieve saved cart.
-oMiscs: This service retrieves list of supported payment card types, list of available currencies, list of supported countries, available languages and all localized titles.
-oUsers: This service allows all user specific operations like registering, fetching, updating, deleting customer profile.
-oCatalogs: This service retrieves a list of catalogs, catalog version and information on category in catalog version.
-oExport: This service provides list of product exports.
-oVouchers: This service retrieves a voucher based on code.
-oStores: This service fetches list of store locations and header with number of store locations.
-oFeeds: This API gets a list of orders with status updates.
-oOrders: This service fetches order details, order history, total number of orders, post and get an order.
-oCarts: This API defines all cart related operations like creation and restoration of carts.
-oForgotten Passwords: This API generates a token to restore a customer's forgotten password.
+o Products: This service provides details on total number of product stock levels, product details, reference, list of products and additional data.
+o Promotions: This service provides details on list of promotion and specific promotion based on code.
+o Customer Groups: This service provides details on all sub groups of customer group, allow creation of new customer group, assign user to customer group, fetch specific group and delete user from customer group. To try out the methods of the Customer Groups controller, you must authorize a user who belongs to the “customer manager group”.
+o Save Cart: This service clones a cart, saves cart, restore a saved cart and retrieve saved cart.
+o Miscs: This service retrieves list of supported payment card types, list of available currencies, list of supported countries, available languages and all localized titles.
+o Users: This service allows all user specific operations like registering, fetching, updating, deleting customer profile.
+o Catalogs: This service retrieves a list of catalogs, catalog version and information on category in catalog version.
+o Export: This service provides list of product exports.
+o Vouchers: This service retrieves a voucher based on code.
+o Stores: This service fetches list of store locations and header with number of store locations.
+o Feeds: This API gets a list of orders with status updates.
+o Orders: This service fetches order details, order history, total number of orders, post and get an order.
+o Carts: This API defines all cart related operations like creation and restoration of carts.
+o Forgotten Passwords: This API generates a token to restore a customer's forgotten password.
 
 
 4.Overview
