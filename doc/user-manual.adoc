@@ -282,4 +282,4 @@ payload]]></ee:set-payload>
 ```
 
 == See Also
-* [Hybris Connector Release Notes](https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc)
+* link:[Hybris Connector Release Notes]( https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc
