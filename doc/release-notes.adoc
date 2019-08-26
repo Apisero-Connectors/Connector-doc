@@ -1,6 +1,6 @@
 = Hybris OCC Connector Release Notes
 
-September 2019
+August 2019
 
 _MuleSoft Certified_
 
