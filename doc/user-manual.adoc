@@ -243,7 +243,6 @@ payload
 * Complete flow looks as below.
 
 image::https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/images/demo-get-carts/demo-get-carts.png
-
 * Run the project as a Mule Application by right-clicking the project name in the Package Explorer, selecting Run As > Mule Application.
 * Open Postman and check the response after entering the URL *http://localhost:8080/getCarts*. You should see the cart details with same user.
 
@@ -282,4 +281,5 @@ payload]]></ee:set-payload>
 ```
 
 == See Also
-* link:[Hybris Connector Release Notes]( https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc
+* ​Hybris Connector Release Notes
+https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc
