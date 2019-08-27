@@ -280,6 +280,5 @@ payload]]></ee:set-payload>
 </mule>
 ```
 
-== See Also
-* ​Hybris Connector Release Notes
-https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc
+== See Also 
+* https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc[​Hybris Connector Release Notes]
