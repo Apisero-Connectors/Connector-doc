@@ -63,7 +63,7 @@ You can use Hybris OCC connector in Anypoint Studio by adding it as a dependency
 ```
 <dependency>
     <groupId>org.mule.modules</groupId>
-    <artifactId>hybris-occ-connector</artifactId>
+    <artifactId>mule-hybris-occ-connector</artifactId>
     <version>4.0.0</version>
     <classifier>mule-plugin</classifier>
 </dependency>
