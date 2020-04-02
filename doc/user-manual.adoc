@@ -280,5 +280,30 @@ payload]]></ee:set-payload>
 </mule>
 ```
 
+Release 5.0.0
+=============
+
+<h2>TLS Configuration</h2> 
+[Click Here](https://docs.mulesoft.com/mule-runtime/4.2/tls-configuration 
+
+== To Install this Connector in Anypoint Studio 7
+You can use Hybris OCC connector in Anypoint Studio by adding it as a dependency in your Mule application.
+
+. Open your Mule project in Anypoint Studio.
+. Add the connector as a dependency in the pom.xml file:
+
+```
+<dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-hybris-occ-connector</artifactId>
+    <version>5.0.0</version>
+    <classifier>mule-plugin</classifier>
+</dependency>
+```
+
+When Studio has an update, a message displays in the lower right corner, which
+you can click to install the update. After updating, update Maven pom.xml file dependencies to the new version.
+
+
 == See Also 
 * https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/release-notes.adoc[​Hybris Connector Release Notes]

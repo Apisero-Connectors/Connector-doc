@@ -30,6 +30,43 @@ The Hybris OCC Connector is compatible with these software versions:
 None
 
 
+== Version 5.0.0 - April 2020
+This release updates Hybris OCC connector for Mule 4 compatibility, this is the 2nd version of Mule4 and it is not compatible with Mule 3 versions.
+
+=== Version 5.0.0 - Compatibility
+The Hybris OCC Connector is compatible with these software versions:
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Anypoint Studio |7 and later
+|Mule |4 and later
+|JDK |1.8.x
+|===
+
+=== Version 5.0.0 - Features
+
+* Hybris connector is compatible with Mule 4
+* Hybris connector supports dynamic fields
+
+
+=== Version 5.0.0 - Fixed in This Release
+
+* TLS (Transport layer Security) Config:Its a cryptographic protocol that provides communications security for your Mule app.It offers many different ways of exchanging keys for authentication, encrypting data, and guaranteeing message integrity. 
+
+* Non Blocking Operations: The operations that consume APIs are non blocking operations .It always need to be specified through void methods.The Non blocking processing strategies relieves threads from the burden of waiting for a response.
+
+* Connection Management: Improved connection Management with Cached ConnectionProvider.Uses of Initializable, Disposable, Startable, Stoppable interfaces.
+
+* TimeOut & TimeUnit’s: Configurable TimeOut’s & TimeUnit’s.
+
+* Configuration Override feature: Can override global configuration in operations.
+
+* Munits: It’s a Mule application testing framework that allows you to easily build automated tests for your integrations and APIs.
+
+* Improved Error Handling logic: The errors are channeled through the error() method in the callback( CompletionCallback) which improves performance.
+
+
 == See Also
 * https://www.mulesoft.com/legal/versioning-back-support-policy#anypoint-connectors[Anypoint Connectors Support Policy]
 * https://github.com/Apisero-Connectors/Connector-doc/blob/master/doc/user-manual.adoc[​User Manual]
