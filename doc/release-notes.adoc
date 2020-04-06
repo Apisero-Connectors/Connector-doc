@@ -1,35 +1,5 @@
 = Hybris OCC Connector Release Notes
 
-August 2019
-
-_MuleSoft Certified_
-
-SAP Hybris OCC Anypoint Connector provides Mule users a quick and easy way to integrate with SAP Hybris.
-
-== Version 4.0.0 - August 2019
-This release updates Hybris OCC connector for Mule 4 compatibility, this is the first version of Mule4 and it is not compatible with Mule 3 versions.
-
-=== Version 4.0.0 - Compatibility
-The Hybris OCC Connector is compatible with these software versions:
-
-[%header%autowidth.spread]
-|===
-|Software |Version
-|Anypoint Studio |7 and later
-|Mule |4 and later
-|JDK |1.8.x
-|===
-
-=== Version 4.0.0 - Features
-
-* Hybris connector is compatible with Mule 4
-* Hybris connector supports dynamic fields
-
-
-=== Version 4.0.0 - Fixed in This Release
-None
-
-
 == Version 5.0.0 - April 2020
 This release updates Hybris OCC connector for Mule 4 compatibility, this is the 2nd version of Mule4 and it is not compatible with Mule 3 versions.
 
@@ -66,6 +36,35 @@ The Hybris OCC Connector is compatible with these software versions:
 
 * Improved Error Handling logic: The errors are channeled through the error() method in the callback( CompletionCallback) which improves performance.
 
+
+August 2019
+
+_MuleSoft Certified_
+
+SAP Hybris OCC Anypoint Connector provides Mule users a quick and easy way to integrate with SAP Hybris.
+
+== Version 4.0.0 - August 2019
+This release updates Hybris OCC connector for Mule 4 compatibility, this is the first version of Mule4 and it is not compatible with Mule 3 versions.
+
+=== Version 4.0.0 - Compatibility
+The Hybris OCC Connector is compatible with these software versions:
+
+[%header%autowidth.spread]
+|===
+|Software |Version
+|Anypoint Studio |7 and later
+|Mule |4 and later
+|JDK |1.8.x
+|===
+
+=== Version 4.0.0 - Features
+
+* Hybris connector is compatible with Mule 4
+* Hybris connector supports dynamic fields
+
+
+=== Version 4.0.0 - Fixed in This Release
+None
 
 == See Also
 * https://www.mulesoft.com/legal/versioning-back-support-policy#anypoint-connectors[Anypoint Connectors Support Policy]
