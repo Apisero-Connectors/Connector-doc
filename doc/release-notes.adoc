@@ -1,5 +1,11 @@
 = Hybris OCC Connector Release Notes
 
+August 2019
+
+_MuleSoft Certified_
+
+SAP Hybris OCC Anypoint Connector provides Mule users a quick and easy way to integrate with SAP Hybris.
+
 == Version 5.0.0 - April 2020
 This release updates Hybris OCC connector for Mule 4 compatibility, this is the 2nd version of Mule4 and it is not compatible with Mule 3 versions.
 
@@ -36,12 +42,6 @@ The Hybris OCC Connector is compatible with these software versions:
 
 * Improved Error Handling logic: The errors are channeled through the error() method in the callback( CompletionCallback) which improves performance.
 
-
-August 2019
-
-_MuleSoft Certified_
-
-SAP Hybris OCC Anypoint Connector provides Mule users a quick and easy way to integrate with SAP Hybris.
 
 == Version 4.0.0 - August 2019
 This release updates Hybris OCC connector for Mule 4 compatibility, this is the first version of Mule4 and it is not compatible with Mule 3 versions.
